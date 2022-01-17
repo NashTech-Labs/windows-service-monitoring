@@ -15,7 +15,7 @@ def alert_content(webhook_url, status, service_name, win32_err_code=0, service_e
         payload['attachments'] = [{"text": f"*Service*: `{service_name}`\n*Status*: `Running`", "color": "#32CD32"}]
 
     if status == 7:
-        payload['text'] = f"Service *{service_name}* is *Paused*. \nAttempting to Start the Service"
+        payload['text'] = f"Service *{service_name}* is *Paused*."
         payload['attachments'] = [{"text": f"*Service*: `{service_name}`\n*Status*: `Paused`", "color": "#FFFF00"}]
 
     if status == -1:
