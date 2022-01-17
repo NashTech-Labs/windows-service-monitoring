@@ -13,7 +13,7 @@ There is a script to start the monitoring process, named `start.bat`. But it wil
 
 To setup webhook on slack, visit [Slack-Webhook](https://api.slack.com/messaging/webhooks)
 
-#### Setup Environment Variables
+### Setup Environment Variables
 
 Considering the slack webhook has been set, next step will be to run the CMD(Windows Command Prompt) or Windows Powershell as administrator.  
 > This script not only notifies but also manages the service, and tries to restart the service when it is stopped or when it fails. In case of failure it also sends the error description and code on Slack.
@@ -31,7 +31,7 @@ $env:service_name = <service-name>
 $env:notify_interval = <notify-interval-in-minutes>
 ```
 
-#### Starting the script
+### Starting the script
 
 Now to start the script execute the `start.bat` as:
 ```
@@ -46,11 +46,23 @@ The startup script will perform these tasks:
 - The startup script takes default value of `notify_interval` to be 5 seconds
 - The file `error_code.yaml` consists all the windows error codes and their names and description to the error. The script reads and display the error info from this file.
 
-#### Status Codes
+### Status Codes
 | Code | Status|
 | - | - |
 | 1 | Stopped |
 | 4 | Running |
 | 7 | Paused |
 
-#### Slack snapshots
+### Slack snapshots
+
+- **Successfully Running after restarting**
+    > ![Running](https://github.com/knoldus/windows-service-monitoring/blob/feature/windows-service-monitoring/images/running.png?raw=true)
+
+- **Service stopped**
+    > ![Stopped](https://github.com/knoldus/windows-service-monitoring/blob/feature/windows-service-monitoring/images/stopped.png?raw=true)
+
+- **Service Paused**
+    > ![Paused](https://github.com/knoldus/windows-service-monitoring/blob/feature/windows-service-monitoring/images/paused.png?raw=true)
+
+- **Service Failed**
+    > ![Failed](https://github.com/knoldus/windows-service-monitoring/blob/feature/windows-service-monitoring/images/failed.png?raw=true)
